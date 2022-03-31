@@ -5,9 +5,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color: #000000; */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html, body, #root {
+  height: calc(100% - 3px);
+  width: 100%;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+iframe {
+  pointer-events: none;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
 }

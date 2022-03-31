@@ -2,31 +2,128 @@
   "name": "friends-quiz",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.13",
-    "@types/react": "^17.0.20",
-    "@types/react-dom": "^17.0.9",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0",
-    "typescript": "^4.4.2",
-    "web-vitals": "^2.1.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && firebase deploy"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "env": {
+      "browser": true,
+      "jest": true
+    },
+    "ignorePatterns": [
+      "serviceWorker.ts"
+    ],
+    "rules": {
+      "no-param-reassign": "off",
+      "@import/no-unresolved": "off",
+      "@typescript-eslint/camelcase": "off",
+      "@typescript-eslint/no-non-null-assertion": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/explicit-member-accessibility": [
+        "error",
+        {
+          "accessibility": "no-public"
+        }
+      ],
+      "@typescript-eslint/indent": [
+        "error",
+        4
+      ],
+      "@typescript-eslint/no-empty-function": "off",
+      "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/ban-types": [
+        "error",
+        {
+          "extendDefaults": true,
+          "types": {
+            "String": {
+              "message": "Use string instead",
+              "fixWith": "string"
+            },
+            "{}": false
+          }
+        }
+      ],
+      "react/jsx-one-expression-per-line": "off",
+      "comma-dangle": "off",
+      "indent": "off",
+      "jsdoc/require-param": "off",
+      "no-unused-vars": [
+        "warn",
+        {
+          "args": "after-used",
+          "argsIgnorePattern": "_"
+        }
+      ],
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          "args": "after-used",
+          "argsIgnorePattern": "_"
+        }
+      ],
+      "object-curly-newline": [
+        "error",
+        {
+          "ObjectExpression": {
+            "minProperties": 6,
+            "multiline": true,
+            "consistent": true
+          },
+          "ObjectPattern": {
+            "minProperties": 6,
+            "multiline": true,
+            "consistent": true
+          },
+          "ImportDeclaration": {
+            "minProperties": 6,
+            "multiline": true,
+            "consistent": true
+          },
+          "ExportDeclaration": {
+            "minProperties": 6,
+            "multiline": true,
+            "consistent": true
+          }
+        }
+      ],
+      "react/destructuring-assignment": "off",
+      "react/prop-types": "off",
+      "valid-jsdoc": "off",
+      "import/prefer-default-export": "off",
+      "jsdoc/require-description-complete-sentence": "off"
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [
+            ".js",
+            ".json",
+            ".ts",
+            ".tsx",
+            ".d.ts"
+          ],
+          "moduleDirectory": [
+            "node_modules",
+            "src"
+          ]
+        }
+      }
+    }
   },
   "browserslist": {
     "production": [
@@ -39,5 +136,68 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.8",
+    "@rebass/forms": "^4.0.6",
+    "@rebass/layout": "^4.0.6",
+    "@rebass/preset": "^4.0.5",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "dotenv": "^8.2.0",
+    "emotion-theming": "^10.0.27",
+    "firebase": "^8.3.3",
+    "lodash": "^4.17.15",
+    "react": "^17.0.2",
+    "react-circular-progressbar": "^2.0.4",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-hook-form": "^7.0.5",
+    "react-icons": "^4.2.0",
+    "react-modal": "^3.13.1",
+    "react-motion-drawer": "^3.1.0",
+    "react-promise-tracker": "^2.0.5",
+    "react-router-dom": "^5.1.2",
+    "react-router-transition": "^2.1.0",
+    "react-scripts": "4.0.3",
+    "react-spinners": "^0.8.0",
+    "react-swipeable-views": "^0.13.9",
+    "react-swipeable-views-core": "^0.14.0-alpha.0",
+    "react-swipeable-views-utils": "^0.14.0-alpha.0",
+    "react-toastify": "^5.5.0",
+    "react-transition-group": "^4.4.1",
+    "react-use": "^13.22.0",
+    "rebass": "^4.0.7",
+    "rodal": "^1.8.1",
+    "styled-components": "^5.0.0",
+    "typescript": "^4.1.2",
+    "use-react-router": "^1.0.7",
+    "web-vitals": "^1.0.1",
+    "yup": "^0.28.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.9.0",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^12.12.25",
+    "@types/react": "^16.9.18",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-helmet": "^6.1.1",
+    "@types/react-icons": "^3.0.0",
+    "@types/react-modal": "^3.12.0",
+    "@types/react-router-dom": "^5.1.3",
+    "@types/react-router-transition": "^2.1.0",
+    "@types/react-swipeable-views": "^0.13.0",
+    "@types/react-swipeable-views-core": "^0.13.0",
+    "@types/react-swipeable-views-utils": "^0.13.2",
+    "@types/react-toastify": "^4.1.0",
+    "@types/react-transition-group": "^4.4.1",
+    "@types/rebass": "^4.0.4",
+    "@types/rebass__forms": "^4.0.4",
+    "@types/rebass__layout": "^4.0.0",
+    "@types/uuid": "^8.3.4"
   }
 }
