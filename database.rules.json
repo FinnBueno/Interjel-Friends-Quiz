@@ -1,7 +1,20 @@
 {
-  /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
   "rules": {
-    ".read": false,
-    ".write": false
+    "global": {
+      ".read": true,
+      ".write": false
+    },
+    "facts": {
+      ".read": true,
+      ".write": "auth.uid === 'QQ1whReW82hz4cwLJeo0UH58PMb2'"
+    },
+    "game": {
+      ".read": true,
+      ".write": "auth.uid === 'QQ1whReW82hz4cwLJeo0UH58PMb2'"
+    },
+    "players": {
+      ".read": true,
+      ".write": true
+    }
   }
 }

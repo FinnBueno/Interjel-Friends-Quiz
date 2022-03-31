@@ -155,7 +155,9 @@ export const HostPage: React.FC<{}> = () => {
         )
     }
 
-    const reset = () => firebase.app().database().ref('game').set({ state: 'lobby' });
+    const reset = () => {
+        firebase.app().database().ref('game').set({ state: 'lobby' });
+    };
 
     // go from lobby state to playing state
     const start = () => {
