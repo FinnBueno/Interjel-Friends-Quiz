@@ -15,6 +15,7 @@ import { theme } from 'src/service/theme/configuration';
 import { Modal } from 'src/atoms/modal';
 import { useGame, usePlayers } from 'src/service/game';
 import styled from 'styled-components';
+import { useTotal } from 'src/service/game/totalQuotes';
 
 const BackgroundEffect = styled(Box)`
     position: absolute;
@@ -125,7 +126,9 @@ export const HostPage: React.FC<{}> = () => {
     const auth = useAuth();
     const history = useHistory();
     const game = useGame();
+    const total = useTotal();
     const players = usePlayers() || [];
+    console.log(players);
     const [timer, setTimer] = useState<number>(0);
     const [showScoreboardModal, setShowScoreboardModal] = useState(false);
     const [finalRevealCounter, setFinalRevealCounter] = useState(0);
@@ -320,8 +323,8 @@ export const HostPage: React.FC<{}> = () => {
                 </Flex>
             </Modal>
             <Flex flex={1} justifyContent='flex-end' alignItems='center' flexDirection='column'>
-                <Heading variant='heading4' mb={2}>
-                    Persoon {game.current!.id + 1} van de 20
+                <Heading variant='heading4' mt={2}>
+                    Persoon {game.current!.id + 1} van de {total}
                 </Heading>
                 <Heading variant='heading3' mb={4}>
                     Feit {(game.current?.currentFact || 0) + 1}

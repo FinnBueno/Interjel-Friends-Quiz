@@ -43,7 +43,7 @@ export const PlayerPage: React.FC<{}> = () => {
             <Flex m={2} flexDirection='column' alignItems='center' justifyContent='center' height='100%' minHeight='auto'>
                 <Heading variant='heading1' mb={1}>Even geduld</Heading>
                 <Text variant='body' textAlign='center' mb={1}>We gaan zo beginnen.</Text>
-                <Text variant='caption' textAlign='center' mt={1}>Je naam is nu {auth?.player?.name}.</Text>
+                <Text variant='body' textAlign='center' mt={3}>Je naam is nu {auth?.player?.name}.</Text>
                 <MButton variant='link' onClick={() => auth?.setPlayer()} mt={1}>Toch iets anders? Klik dan hier.</MButton>
             </Flex>
         );

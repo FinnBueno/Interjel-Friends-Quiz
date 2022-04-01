@@ -84,11 +84,13 @@ export const AuthProvider: React.FC<{}> = (props) => {
                         localStorage.setItem(PLAYER_IDENTIFIER_PATH, uuid);
                         // create a player object in the database, then tell the client that they've 
                         firebase.app().database().ref(`players/${uuid}`).set({ name, uuid, score: 0 }).then(() => setPlayerIdentifier(uuid));
+                        firebase.app().database().ref(`players/lastUpdated`).set(Date.now());
                     } else {
                         localStorage.removeItem(PLAYER_IDENTIFIER_PATH);
                         if (playerIdentifier) {
                             // remove player object from database in case this player had a name
                             firebase.app().database().ref(`players/${playerIdentifier}`).remove();
+                            firebase.app().database().ref(`players/lastUpdated`).set(Date.now());
                         }
                         setPlayerIdentifier(undefined);
                     }

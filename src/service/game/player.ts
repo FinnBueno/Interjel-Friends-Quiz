@@ -12,9 +12,8 @@ export const usePlayers = () => {
 
     useEffect(() => {
         const handle = (snapshot: firebase.database.DataSnapshot) => {
-            console.log(snapshot.val());
             if (!snapshot.exists()) return;
-            const result: Player[] = Object.values(snapshot.val());
+            const result: Player[] = Object.values(snapshot.val()).filter(t => typeof t === 'object' && t) as Player[];
             setPlayers(result.sort((a, b) => b.score - a.score));
         };
         const ref = firebase.database().ref('players');
