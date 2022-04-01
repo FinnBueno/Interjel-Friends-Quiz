@@ -68,7 +68,7 @@ export const PlayerPage: React.FC<{}> = () => {
         <Flex flexDirection='column' justifyContent='stretch' height='100%' maxHeight='100vh'>
             <Flex flex={0} my={3} mx={2} flexDirection='column'>
                 <Heading variant='heading3'>
-                    Maak je keuze 🤔🦺
+                    🦺 {auth?.player?.name} 🦺
                 </Heading>
                 <Text variant='caption' mt={2}>Maak je keuze en laat de timer aflopen. Je kunt je keuze niet aanpassen wanneer er een nieuw feitje verschijnt!</Text>
                 <Text variant='caption' mt={1}>Je ziet nu feit {game.current!.currentFact + 1} van persoon {game.current!.id + 1}</Text>
